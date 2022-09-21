@@ -1,13 +1,17 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:otterli/screens/signup.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:otterli/screens/Login/login.dart';
+import 'package:otterli/screens/Signup/signup.dart';
+import 'package:otterli/screens/Splash/splash.dart';
 
 void main() {
   runApp(MaterialApp(
     routes: {
       // When navigating to the "/" route, build the FirstScreen widget.
       '/signup': (context) => const Signup(),
+      '/login': (context) => const Login(),
       // When navigating to the "/second" route, build the SecondScreen widget.
     },
     debugShowCheckedModeBanner: false,
@@ -18,42 +22,4 @@ void main() {
   ));
 
 //  runApp(HomePage());
-}
-
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => new _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  startTime() async {
-    var _duration = new Duration(seconds: 2);
-    return new Timer(_duration, navigationPage);
-  }
-
-  void navigationPage() {
-    Navigator.of(context).pushReplacementNamed('/signup');
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    startTime();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            FlutterLogo(
-              size: 100.0,
-            ),
-            CircularProgressIndicator(),
-          ],
-        ),
-      ),
-    );
-  }
 }
